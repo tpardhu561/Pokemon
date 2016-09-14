@@ -121,7 +121,7 @@ class Pokemon
 		else// price calculated for non-grouped pokemon
 		{
 			if(type[0]==null)
-				System.out.println("No Pokemon bought. Buy some Pokemon. We're giving good discounts today!!!");
+				System.out.println("\nNo Pokemon bought. Buy some Pokemon. We're giving good discounts today!!!");
 			else
 			{
 				total = total + (poke[0] * price[0]);
