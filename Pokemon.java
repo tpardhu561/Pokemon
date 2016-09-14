@@ -1,7 +1,8 @@
 /*A source code to perform the Pokemon exrcise. Performed many Unit test cases
 Name: Partha Saradhi Tatikonda
 Email: ptatikon@kent.edu
-Id: 810866550import java.io.*;*/
+Id: 810866550*/
+import java.io.*;
 import java.util.*;
 class Pokemon
 {
