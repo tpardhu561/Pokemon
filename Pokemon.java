@@ -8,9 +8,9 @@ class Pokemon
 {
 	public static void main(String[] args)
 	{
-		int i = 0;
-		double total = 0;
-		double[] poke = new double[3];//stores the count of different pokemon bought
+		int i = 0;//by default zero pokemon purchased
+		double total = 0;//by default total amount is 0
+		double[] poke = new double[3];//stores the count of each differenttype of pokemon bought
 		double[] price = new double[3];//stores the prices of different Pokemon types
 		String[] type = new String[3];//stores the names of different pokemon
 		Scanner sc=new Scanner(System.in);
@@ -58,8 +58,8 @@ class Pokemon
 			i++;
 		}
 		i--;
-		for(int j=0; j<i; j++)
-		for (int x = 0; x < i; x++)
+		for(int j=0; j<i; j++)// the pokemon array is sorted in decreasing order based number of each different type of pokemon purchased
+		for (int x = 0; x < i; x++)// the prices and names of different pokemon types are re-arranged with respect to count
 		{
             if (poke[x] < poke[x + 1])
             {
@@ -74,13 +74,13 @@ class Pokemon
                 type[x + 1] = temp_type;
             }
         }
-		if (i>0)// this helps in applying discounts to pokemon
+		if (i>0)// if more than one pokemon is purchased, this helps in applying discounts to pokemon
 		{
 			double disc = poke[0];
-			for(int x=0; x<=i; x++)//to find grouped pokemon
+			for(int x=0; x<=i; x++)//to find the number of groups of 2 0r 3 different pokemon purchased
 				if(poke[x]<disc)
 					disc=poke[x];
-			if (i == 2)
+			if (i == 2)//if 3 different pokemon purchased
 			{
 				for(int x=0; x<=i; x++)//helps in applying 20% discount to 3 grouped pokemon
 				{
@@ -90,10 +90,10 @@ class Pokemon
 				}
 				i--;
 			}
-			for(int x=0; x<=i; x++)//to find grouped pokemon
+			for(int x=0; x<=i; x++)//to find the number of groups of 2 different pokemon purchased
 					if(poke[x]<disc)
 						disc=poke[x];
-			if (i == 1 && disc!=0)
+			if (i == 1 && disc!=0)// if 2 different pokemon purchased
 			{
 				for(int x=0; x<=i; x++)// helps in applying 10% discount to 2 grouped pokemon
 				{
@@ -101,7 +101,7 @@ class Pokemon
 					System.out.printf("\n"+type[x]+"\t%.0f\t10%% off\t%.2f", disc, disc * (0.9 * price[x]));
 					poke[x] = poke[x] - disc;
 				}
-				for(int x=0; x<=i; x++)// price calculated for non-grouped pokemon
+				for(int x=0; x<=i; x++)// price calculated for non-grouped remaining pokemon
 				{
 					total = total + (poke[x] * price[x]);
 					if((poke[x] * price[x]) != 0)
@@ -118,11 +118,11 @@ class Pokemon
 				}
 			}
 		}
-		else// price calculated for non-grouped pokemon
+		else
 		{
-			if(type[0]==null)
+			if(type[0]==null)// if no pokemon purchased
 				System.out.println("\nNo Pokemon bought. Buy some Pokemon. We're giving good discounts today!!!");
-			else
+			else// price calculated if only one pokemon purchased
 			{
 				total = total + (poke[0] * price[0]);
 				System.out.printf("\n"+type[0]+"\t%.0f\t 0%% off\t%.2f", poke[0], poke[0]* price[0]);
