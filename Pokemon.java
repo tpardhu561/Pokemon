@@ -14,7 +14,7 @@ class Pokemon
 		double[] price = new double[3];//stores the prices of different Pokemon types
 		String[] type = new String[3];//stores the names of different pokemon
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Welcome to Pokemon Toy Store\n");
+		System.out.println("\nWelcome to Pokemon Toy Store\n");
 		System.out.printf("How many Pikachu's : ");
 		double pik = sc.nextDouble();
 		while (pik < 0)
@@ -29,7 +29,7 @@ class Pokemon
 			type[i] = "Pikachu ";
 			i++;
 		}
-		System.out.printf("\nHow many Squirtles : ");
+		System.out.printf("How many Squirtles : ");
 		double squ = sc.nextDouble();
 		while (squ < 0)
 		{  
@@ -43,7 +43,7 @@ class Pokemon
 			type[i] = "Squirtle";
 			i++;
 		}
-		System.out.printf("\nHow many Charmanders : ");
+		System.out.printf("How many Charmanders : ");
 		double cha = sc.nextDouble();
 		while (cha < 0)
 		{  
